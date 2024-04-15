@@ -5,7 +5,7 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = ({photo}) => {
   /* Insert React */
 return (
-    <div className="">
+    <div className="photo-list__item">
       <p>{photo.username}</p>
       <img src={photo.imageSource} alt="photo" />
       <p>{photo.id}</p>
