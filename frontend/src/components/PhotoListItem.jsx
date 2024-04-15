@@ -9,7 +9,7 @@ const PhotoListItem = ({username, imageSource, id, location, profile}) => {
       <h6>{username}</h6>
       <h6>{imageSource}</h6>
       <h6>{id}</h6>
-      <h6>{location}</h6>
+      <h6>{location.city}, {location.country}</h6>
       <h6>{profile}</h6>
       
     </div>  
