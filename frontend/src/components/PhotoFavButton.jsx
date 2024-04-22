@@ -8,6 +8,7 @@ function PhotoFavButton() {
 
   const handleClick = () => {
     setFavouritePhoto(prev => !prev);
+    console.log('clicked')
   };
 
   return (
