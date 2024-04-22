@@ -19,6 +19,7 @@ const App = () => {
   const photos = [...Array(3)];
   const sampleArrayOfPhotos = photos.map((photo, i) => 
     <PhotoListItem key={i} photo={sampleDataForPhotoListItem} />
+    
   );
 
   return (
