@@ -11,9 +11,9 @@ function PhotoFavButton() {
   };
 
   return (
-    <div className="photo-list__fav-icon">
+    <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon isFavourite={favouritePhoto} onClick={handleClick} />
+        <FavIcon isFavourite={favouritePhoto} />
       </div>
     </div>
   );
