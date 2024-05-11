@@ -22,7 +22,6 @@ const App = () => {
    return (
     <div className="App">
       <TopNavigationBar /> 
-      <TopicList />
       <PhotoList fav={fav} favPhoto={favPhoto} />
     </div>
   );
