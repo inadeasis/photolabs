@@ -21,7 +21,7 @@ const App = () => {
 
    return (
     <div className="App">
-      <TopNavigationBar /> 
+      <TopNavigationBar/> 
       <PhotoList fav={fav} favPhoto={favPhoto} />
     </div>
   );
