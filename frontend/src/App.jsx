@@ -1,9 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 
-import PhotoList from 'components/PhotoList';
 import './App.scss';
+
+import PhotoList from 'components/PhotoList';
 import TopicList from 'components/TopicList';
+import TopNavigationBar from './components/TopNavigationBar';
+
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
@@ -17,28 +20,11 @@ const App = () => {
   };
 
    return (
-        <div className="App">
+    <div className="App">
+      <TopNavigationBar /> 
       <TopicList />
       <PhotoList fav={fav} favPhoto={favPhoto} />
     </div>
   );
 };
-//   const photos = [...Array(3)];
-//   const sampleArrayOfPhotos = photos.map((photo, i) => 
-//       <PhotoList key={i} photo={sampleDataForPhotoListItem} />
-    
-//    );
-
-//    return (
-//     <div className="App">
-//     <TopicList/>
-//      {sampleArrayOfPhotos}
-     
-//    </div>
-//    );
-
-   
-  
-// }
-
 export default App;
