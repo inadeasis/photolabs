@@ -2,6 +2,8 @@ import React from "react";
 
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
+import photos from "mocks/photos";
+import topics from "mocks/topics";
 
 const sampleDataForPhotoList = [
   // your sample data
@@ -57,38 +59,18 @@ const sampleDataForPhotoList = [
     },
   },
 ];
-
-// const PhotoList = ({ photos, updateFavouritedPhotoIDs, updateModalData, photoIDs }) => {
-
-//   const photoListItemArray = photos ? photos.map((item) =>
-//     <li key={item.id}>
-//       <PhotoListItem
-//         item={item}
-//         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-//         updateModalData={updateModalData}
-//         photoIDs={photoIDs}
-//       />
-//     </li>
-//   ) : null;
-
-//   return (
-//     <ul className="photo-list">
-//       {photoListItemArray}
-//     </ul>
-//   );
-// };
 const PhotoList = (props) => {
-  const { fav, favPhoto } = props;
+  const { photos } = props;
 
-  const list = sampleDataForPhotoList.map((photo, i) => (
-    <PhotoListItem
-      key={i}
-      photoData={photo}
-      fav={fav}
-      favPhoto={favPhoto}
-    />
-  ));
-
-  return <div className="photo-list">{list}</div>;
+  const photoListItemArray = photos.map((item) =>
+    <li key={item.id}><PhotoListItem item={item} /></li>
+  );
+  
+  return (
+  <ul className="photo-list">
+      {photoListItemArray}
+    </ul>
+  );
 };
+
 export default PhotoList;
