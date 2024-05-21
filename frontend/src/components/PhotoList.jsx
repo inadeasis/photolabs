@@ -10,11 +10,11 @@ const PhotoList = (props) => {
     <li key={item.id}><PhotoListItem item={item} /></li>
   );
   
-  return (
+return (
   <ul className="photo-list">
-      {photoListItemArray}
-    </ul>
-  );
+    {photos.map((item) => <li key={item.id}><PhotoListItem item={item} /></li>)}
+  </ul>
+);
 };
 
 export default PhotoList;
