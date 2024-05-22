@@ -6,6 +6,7 @@ import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
   const { topics, photos, updateFavouritedPhotoIDs, isFavourited } = props;
+ 
   return (
     <div className="home-route">
       <TopNavigation topics={topics} isFavourited={ isFavourited } />
