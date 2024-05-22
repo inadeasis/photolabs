@@ -4,7 +4,7 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton"
 
 const PhotoListItem = (props) => {
-  const { item, updateFavouritedPhotoIDs } = props;
+  const { item, updateFavouritedPhotoIDs, setDisplayModal } = props;
 
   const [selected, setSelected] = useState(false);
 
@@ -12,9 +12,11 @@ const PhotoListItem = (props) => {
     if (selected) {
       setSelected(false);
       updateFavouritedPhotoIDs(item.id, selected);
+      setDisplayModal(true);
     } else {
       setSelected(true);
       updateFavouritedPhotoIDs(item.id, selected);
+      setDisplayModal(false);
     }
   };
 
