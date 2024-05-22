@@ -10,6 +10,9 @@ import topics from 'mocks/topics';
 const App = () => {
 
   const [photoIDs, setPhotoIDs] = useState([]);
+
+  let isFavourited = false;
+
   const updateFavouritedPhotoIDs = (id, action) => {
     if (!action) {
       setPhotoIDs((prevPhotoIDs) => [...prevPhotoIDs, id]);
@@ -20,12 +23,15 @@ const App = () => {
     }
   };
 
+  { isFavourited = photoIDs.length ? !isFavourited : isFavourited; }
+
+
   useEffect(() => {
   }, [photoIDs]);
 
    return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} />
+      <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} isFavourited={isFavourited} />
     </div>
   );
 };
