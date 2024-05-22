@@ -7,9 +7,8 @@ const PhotoDetailsModal = (props) => {
   const { setDisplayModal } = props
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button">
-        <img src={closeSymbol}  onClick={() => setDisplayModal(false)} alt="close symbol" />
-      </button>
+    <button onClick={() => setDisplayModal(false) } className="photo-details-modal__close-button"> <img src={closeSymbol} alt="close symbol" />
+    </button>
     </div>
   )
 };
