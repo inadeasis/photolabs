@@ -11,6 +11,7 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 const App = () => {
 
   const [photoIDs, setPhotoIDs] = useState([]);
+  const [displayModal, setDisplayModal] = useState(false);
 
   let isFavourited = false;
 
@@ -33,7 +34,7 @@ const App = () => {
    return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} isFavourited={isFavourited} />
-      <PhotoDetailsModal />
+      <PhotoDetailsModal setDisplayModal={setDisplayModal} />
     </div>
   );
 };
