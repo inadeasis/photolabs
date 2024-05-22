@@ -22,7 +22,7 @@ const PhotoListItem = (props) => {
 
   return (
   <div className="photo-list__item">
-    <PhotoFavButton clickOnIcon={clicked} selected={selected} />
+    <PhotoFavButton clicked={clicked} selected={selected} />
     <img className="photo-list__image" src={item.urls.regular} alt="photo" />
     <div className="photo-list__user-details">
       <img className="photo-list__user-profile" src={item.user.profile} alt="" />
