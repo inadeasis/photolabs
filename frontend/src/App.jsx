@@ -33,8 +33,8 @@ const App = () => {
 
    return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} isFavourited={isFavourited} />
-      <PhotoDetailsModal setDisplayModal={setDisplayModal} />
+      <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} isFavourited={isFavourited} setDisplayModal={setDisplayModal} />
+      {displayModal && <PhotoDetailsModal />}
     </div>
   );
 };
