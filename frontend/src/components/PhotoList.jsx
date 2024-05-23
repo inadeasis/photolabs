@@ -12,7 +12,7 @@ return (
       <PhotoListItem 
         item={item} 
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} 
-        setDisplayModal={setDisplayModal}
+        // setDisplayModal={setDisplayModal}
         setModalData={setModalData}
       />
     </li>)}
