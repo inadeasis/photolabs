@@ -5,8 +5,6 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = ({closeDisplayModal, modalPhotoData, setModalData, photos }) => {
-  
-  console.log(modalPhotoData);
   const item = modalPhotoData;
 
   return (
@@ -18,7 +16,7 @@ const PhotoDetailsModal = ({closeDisplayModal, modalPhotoData, setModalData, pho
         <img src={item.urls.regular} className="photo-details-modal__image" alt="main image" />
         <h1 className="photo-details-modal__header">Similar Photos</h1>
         <div className="photo-details-modal__images">
-          <PhotoList photos={Object.values(item.similarPhotos)}
+          <PhotoList photos={item.similarPhotos}
           />
         </div>
       </div>
