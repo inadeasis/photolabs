@@ -12,16 +12,6 @@ import useApplicationData from 'hooks/useApplicationData';
 const App = () => {
   const {photoIDs, displayModal, modalPhotoData, updateFavouritedPhotoIDs, setModalData } = useApplicationData();
 
-  const handleFavouriteToggle = (photo) => {
-    setFavouritedPhotos((prevFavourites) => {
-      if (prevFavourites.includes(photo.id)) {
-        return prevFavourites.filter((id) => id !== photo.id);
-      } else {
-        return [...prevFavourites, photo.id];
-      }
-    });
-  };
-
   useEffect(() => {
    console.log(photoIDs);
   }, [modalPhotoData]);
@@ -32,13 +22,12 @@ const App = () => {
       topics={topics} 
       photos={photos}
       updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-      handleFavouriteToggle={handleFavouriteToggle}
       setModalData={setModalData} />
       
       {modalPhotoData && <PhotoDetailsModal 
         modalPhotoData={modalPhotoData}
         setModalData={setModalData}
-        handleFavouriteToggle={handleFavouriteToggle}
+        updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
         />}
       
     </div>

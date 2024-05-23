@@ -19,20 +19,9 @@ const useApplicationData = () => {
   };
 
   const setModalData = (flag, item) => {
-    setShowModal(flag);
+    setDisplayModal(flag);
     setModalPhotoData(item);
   };
-
-    const handleFavouriteToggle = (photo) => {
-    setFavouritedPhotos((prevFavourites) => {
-      if (prevFavourites.includes(photo.id)) {
-        return prevFavourites.filter((id) => id !== photo.id);
-      } else {
-        return [...prevFavourites, photo.id];
-      }
-    });
-  };
-
 
   return {
     photoIDs,
