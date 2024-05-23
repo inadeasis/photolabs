@@ -13,6 +13,7 @@ const PhotoListItem = (props) => {
       setSelected(false);
       updateFavouritedPhotoIDs(item.id, selected);
       setDisplayModal(false);
+      setDisplayModal(photo);
     } else {
       setSelected(true);
       updateFavouritedPhotoIDs(item.id, selected);

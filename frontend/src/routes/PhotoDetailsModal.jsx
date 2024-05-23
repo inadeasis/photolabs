@@ -7,6 +7,7 @@ const PhotoDetailsModal = ({closeDisplayModal, modalPhotoData, setModalData }) =
   console.log(modalPhotoData);
   return (
     <div className="photo-details-modal">
+    {displayModal && <PhotoDetailsModal setModalData={setModalData} />}
     <button onClick={() => setModalData(false, {})}className="photo-details-modal__close-button"> <img src={closeSymbol} alt="close symbol" />
     </button>
     </div>
