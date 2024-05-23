@@ -4,9 +4,9 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton"
 
 const PhotoListItem = (props) => {
-  const { item, updateFavouritedPhotoIDs, setDisplayModal } = props;
+  const { photo, item, updateFavouritedPhotoIDs, setDisplayModal } = props;
 
-  // const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   // const clicked = () => {
   //   if (selected) {
@@ -20,15 +20,18 @@ const PhotoListItem = (props) => {
   //   }
   // };
 
+    const handlePhotoClick = () => {
+    updateFavouritedPhotoIDs(item.id, selected);
+    setDisplayModal(photo);
+  };
+
   return (
   <div className="photo-list__item">
     <PhotoFavButton 
-    // clicked={clicked} 
-    // selected={selected}
     updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
     item={item} />
 
-    <img className="photo-list__image" onClick={() => setModalData(true, item)} src={item.urls.regular} alt="photo" />
+    <img className="photo-list__image" onClick={handlePhotoClick} src={item.urls.regular} alt="photo" />
     <div className="photo-list__user-details">
       <img className="photo-list__user-profile" src={item.user.profile} alt="profile pic" />
       <div>

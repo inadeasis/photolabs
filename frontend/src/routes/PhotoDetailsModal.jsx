@@ -6,7 +6,12 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
-const PhotoDetailsModal = ({closeDisplayModal, modalPhotoData, setModalData, updateFavouritedPhotoIDs }) => {
+const PhotoDetailsModal = ({
+  modalPhotoData, 
+  setModalData, 
+  isFavourited,
+  handleFavouriteToggle,
+  favouritedPhotos }) => {
 
     if (!modalPhotoData || !modalPhotoData.urls) {
     return null;
@@ -14,7 +19,7 @@ const PhotoDetailsModal = ({closeDisplayModal, modalPhotoData, setModalData, upd
 
   return (
     <div className="photo-details-modal">
-    <button onClick={() => closeDisplayModal(false, {})}className="photo-details-modal__close-button"> <img src={closeSymbol} alt="close symbol" />
+    <button onClick={() => setModalData(false, {})}className="photo-details-modal__close-button"> <img src={closeSymbol} alt="close symbol" />
     </button>
     
     <div className="photo-details-modal__images">
@@ -23,9 +28,18 @@ const PhotoDetailsModal = ({closeDisplayModal, modalPhotoData, setModalData, upd
 
       <img src={modalPhotoData.urls.regular} className="photo-details-modal__image" alt="main" />
 
+      <h1 className="photo-details-modal__header">{modalPhotoData.title}</h1>
+      <button onClick={() => handleFavouriteToggle(modalPhotoData)}>
+        {isFavourited ? 'Unfavourite' : 'Favourite'}
+      </button>
+
       <h1 className="photo-details-modal__header">Similar Photos</h1>
+      
       <div className="photo-details-modal__images">
-        <PhotoList photos={modalPhotoData.similarPhotos || []}/>
+        <PhotoList 
+          photos={modalPhotoData.similarPhotos || []}
+          favouritedPhotos={favouritedPhotos}
+          handleFavouriteToggle={handleFavouriteToggle} />
         </div>
       </div>
     </div>
