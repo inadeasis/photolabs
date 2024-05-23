@@ -10,7 +10,7 @@ const PhotoDetailsModal = ({
   modalPhotoData, 
   setModalData, 
   isFavourited,
-  handleFavouriteToggle,
+  displayModal,
   favouritedPhotos }) => {
 
     if (!modalPhotoData || !modalPhotoData.urls) {
@@ -29,7 +29,7 @@ const PhotoDetailsModal = ({
       <img src={modalPhotoData.urls.regular} className="photo-details-modal__image" alt="main" />
 
       <h1 className="photo-details-modal__header">{modalPhotoData.title}</h1>
-      <button onClick={() => handleFavouriteToggle(modalPhotoData)}>
+      <button onClick={() => favouritedPhotos(displayModal)}>
         {isFavourited ? 'Unfavourite' : 'Favourite'}
       </button>
 
@@ -39,7 +39,7 @@ const PhotoDetailsModal = ({
         <PhotoList 
           photos={modalPhotoData.similarPhotos || []}
           favouritedPhotos={favouritedPhotos}
-          handleFavouriteToggle={handleFavouriteToggle} />
+           />
         </div>
       </div>
     </div>
