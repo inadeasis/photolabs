@@ -4,7 +4,7 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
-  const { photos, updateFavouritedPhotoIDs, setDisplayModal } = props;
+  const { photos, updateFavouritedPhotoIDs, setDisplayModal, setModalData } = props;
   
 return (
   <ul className="photo-list">
@@ -13,6 +13,7 @@ return (
         item={item} 
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} 
         setDisplayModal={setDisplayModal}
+        setModalData={setModalData}
       />
     </li>)}
   </ul>

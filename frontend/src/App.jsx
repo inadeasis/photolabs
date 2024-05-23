@@ -13,6 +13,8 @@ const App = () => {
   const [photoIDs, setPhotoIDs] = useState([]);
   const [displayModal, setDisplayModal] = useState(false);
 
+  let [modalPhotoData, setModalPhotoData] = useState({});
+
   let isFavourited = false;
 
   const updateFavouritedPhotoIDs = (id, action) => {
@@ -25,16 +27,24 @@ const App = () => {
     }
   };
 
+  const setModalData = (flag, item) => {
+    setDisplayModal(flag);
+    setModalPhotoData(item);
+  };
+
+
   { isFavourited = photoIDs.length ? !isFavourited : isFavourited; }
 
 
   useEffect(() => {
+    console.log(photoIDs);
   }, [photoIDs]);
 
    return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} isFavourited={isFavourited} setDisplayModal={setDisplayModal} />
       {displayModal && <PhotoDetailsModal setDisplayModal={setDisplayModal} />}
+      setModalData={setModalData}
     </div>
   );
 };

@@ -9,11 +9,11 @@ const TopicList = (props) => {
     <div key={topic.id}><TopicListItem topic={topic} /></div>
   );
 
-  return (
-    <div className="top-nav-bar__topic-list">
-      { topicListItemArray }
-    </div>
-  );
+return (
+  <div className="top-nav-bar__topic-list">
+    {topics.map((topic) => <div key={topic.id}><TopicListItem topic={topic} /></div>)}
+  </div>
+);
 };
 
 export default TopicList;
