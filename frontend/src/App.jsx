@@ -32,18 +32,17 @@ const App = () => {
     setModalPhotoData(item);
   };
 
-
   { isFavourited = photoIDs.length ? !isFavourited : isFavourited; }
 
 
   useEffect(() => {
-    console.log(photoIDs);
+   // console.log(photoIDs);
   }, [photoIDs]);
 
    return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} isFavourited={isFavourited} setDisplayModal={setDisplayModal} />
-      {displayModal && <PhotoDetailsModal setDisplayModal={setDisplayModal} />}
+      <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} isFavourited={isFavourited} setDisplayModal={setDisplayModal} setModalData={setModalData} />
+      {modalPhotoData && <PhotoDetailsModal setDisplayModal={setDisplayModal} />}
       setModalData={setModalData}
     </div>
   );
