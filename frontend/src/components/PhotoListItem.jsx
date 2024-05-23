@@ -8,18 +8,6 @@ const PhotoListItem = (props) => {
 
   const [selected, setSelected] = useState(false);
 
-  // const clicked = () => {
-  //   if (selected) {
-  //     setSelected(false);
-  //     updateFavouritedPhotoIDs(item.id, selected);
-  //     setDisplayModal(photo);
-  //   } else {
-  //     setSelected(true);
-  //     updateFavouritedPhotoIDs(item.id, selected);
-  //     setDisplayModal(true);
-  //   }
-  // };
-
     const handlePhotoClick = () => {
     updateFavouritedPhotoIDs(item.id, selected);
     setDisplayModal(photo);

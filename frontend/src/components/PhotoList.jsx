@@ -14,7 +14,7 @@ return (
         updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} 
         setDisplayModal={setDisplayModal}
         setModalData={setModalData}
-        handleFavouriteToggle={handleFavouriteToggle}
+        // handleFavouriteToggle={handleFavouriteToggle}
       />
     </li>)}
   </ul>

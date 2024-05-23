@@ -6,14 +6,11 @@ import HomeRoute from 'routes/HomeRoute';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-
-  const [photoIDs, setPhotoIDs] = useState([]);
-  const [displayModal, setDisplayModal] = useState(false);
-  const [modalPhotoData, setModalPhotoData] = useState({});
-  const [favouritedPhotos, setFavouritedPhotos] = useState([]);
+  const {photoIDs, displayModal, modalPhotoData, updateFavouritedPhotoIDs, setModalData } = useApplicationData();
 
   const handleFavouriteToggle = (photo) => {
     setFavouritedPhotos((prevFavourites) => {
@@ -23,21 +20,6 @@ const App = () => {
         return [...prevFavourites, photo.id];
       }
     });
-  };
-
-  const updateFavouritedPhotoIDs = (id, action) => {
-    if (!action) {
-      setPhotoIDs((prevPhotoIDs) => [...prevPhotoIDs, id]);
-    } else {
-      setPhotoIDs(oldValues => {
-        return oldValues.filter(itemID => itemID !== id);
-      });
-    }
-  };
-
-  const setModalData = (flag, item) => {
-    setDisplayModal(flag);
-    setModalPhotoData(item);
   };
 
   useEffect(() => {
@@ -50,17 +32,14 @@ const App = () => {
       topics={topics} 
       photos={photos}
       updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-      favouritedPhotos={favouritedPhotos}
       handleFavouriteToggle={handleFavouriteToggle}
-      setDisplayModal={setModalPhotoData}
       setModalData={setModalData} />
       
       {modalPhotoData && <PhotoDetailsModal 
         modalPhotoData={modalPhotoData}
-        setModalData={setModalPhotoData}
-        isFavourited={favouritedPhotos.includes(modalPhotoData.id)}
+        setModalData={setModalData}
         handleFavouriteToggle={handleFavouriteToggle}
-        favouritedPhotos={favouritedPhotos}/>}
+        />}
       
     </div>
   );
