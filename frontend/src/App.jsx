@@ -36,14 +36,14 @@ const App = () => {
 
 
   useEffect(() => {
-   // console.log(photoIDs);
-  }, [photoIDs]);
+   console.log(photoIDs);
+  }, [modalPhotoData]);
 
    return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} isFavourited={isFavourited} setDisplayModal={setDisplayModal} setModalData={setModalData} />
-      {modalPhotoData && <PhotoDetailsModal setDisplayModal={setDisplayModal} modalPhotoData={modalPhotoData} />}
-      setModalData={setModalData}
+      {modalPhotoData && <PhotoDetailsModal setDisplayModal={setDisplayModal} modalPhotoData={modalPhotoData} photos={photos}/>}
+      
     </div>
   );
 };
