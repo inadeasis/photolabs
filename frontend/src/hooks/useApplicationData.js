@@ -7,6 +7,12 @@ export const ACTIONS = {
   MODAL_PHOTO_DATA: "MODAL_PHOTO_DATA",
 };
 
+const initialState = {
+  photoIDs: [],
+  displayModal: false,
+  modalPhotoData: {},
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
   case ACTIONS.FAV_PHOTO_ADDED:
@@ -26,9 +32,7 @@ const reducer = (state, action) => {
 
 const useApplicationData = () => {
 
-  const [photoIDs, dispatch1] = useReducer(reducer, []);
-  const [displayModal, dispatch2] = useReducer(reducer, false);
-  const [modalPhotoData, dispatch3] = useReducer(reducer, {});
+  const [state, dispatch] = useReducer(reducer, initialState);
 
 
   const updateFavouritedPhotoIDs = (id, action) => {
