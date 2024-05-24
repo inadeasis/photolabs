@@ -8,42 +8,48 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = ({
   modalPhotoData, 
-  setModalData, 
-  isFavourited,
-  displayModal,
-  favouritedPhotos }) => {
+  updateModalData,
+  updateFavouritedPhotoIDs,
+ }) => {
 
     if (!modalPhotoData || !modalPhotoData.urls) {
     return null;
   }
 
+console.log(modalPhotoData);
   return (
     <div className="photo-details-modal">
-    <button onClick={() => setModalData(false, {})}className="photo-details-modal__close-button"> <img src={closeSymbol} alt="close symbol" />
-    </button>
-    
-    <div className="photo-details-modal__images">
-      <PhotoFavButton updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-      modalPhotoData={modalPhotoData}/>
-
-      <img src={modalPhotoData.urls.regular} className="photo-details-modal__image" alt="main" />
-
-      <h1 className="photo-details-modal__header">{modalPhotoData.title}</h1>
-      <button onClick={() => favouritedPhotos(displayModal)}>
-        {isFavourited ? 'Unfavourite' : 'Favourite'}
+      <button className="photo-details-modal__close-button">
+        <img src={closeSymbol} onClick={() => updateModalData(false, {})} alt="close symbol" />
       </button>
 
-      <h1 className="photo-details-modal__header">Similar Photos</h1>
-      
       <div className="photo-details-modal__images">
-        <PhotoList 
-          photos={modalPhotoData.similarPhotos || []}
-          favouritedPhotos={favouritedPhotos}
-           />
+        <div className="photo-details-modal__images_and_icon">
+          <PhotoFavButton
+            updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
+            item={modalPhotoData}
+          />
+          <img src={modalPhotoData.urls.regular} className="photo-details-modal__image" alt="main image" />
+        </div>
+        <div className="photo-list__user-details">
+          <img className="photo-list__user-profile" src={modalPhotoData.user.profile} alt="profile photos" />
+          <div >
+            <p className="photo-list__user-info">{modalPhotoData.user.username}</p>
+            <p className="photo-list__user-location">{modalPhotoData.location.city} {modalPhotoData.location.country}</p>
+          </div>
+        </div>
+        <h1 className="photo-details-modal__header">Similar Photos</h1>
+        
+        <div className="photo-details-modal__images">
+          <PhotoList
+            photos={Object.values(modalPhotoData.similarPhotos)}
+            updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
+          />
         </div>
       </div>
-    </div>
-  )
+    </div >
+  );
 };
+
 
 export default PhotoDetailsModal;
