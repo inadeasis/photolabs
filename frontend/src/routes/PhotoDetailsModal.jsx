@@ -10,6 +10,7 @@ const PhotoDetailsModal = ({
   modalPhotoData, 
   updateModalData,
   updateFavouritedPhotoIDs,
+  setModalData
  }) => {
 
     if (!modalPhotoData || !modalPhotoData.urls) {
@@ -17,10 +18,11 @@ const PhotoDetailsModal = ({
   }
 
 console.log(modalPhotoData);
+
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button">
-        <img src={closeSymbol} onClick={() => updateModalData(false, {})} alt="close symbol" />
+      <button className="photo-details-modal__close-button"
+        src={closeSymbol} onClick={() => setModalData(null)} alt="close symbol" >
       </button>
 
       <div className="photo-details-modal__images">
@@ -38,6 +40,9 @@ console.log(modalPhotoData);
             <p className="photo-list__user-location">{modalPhotoData.location.city} {modalPhotoData.location.country}</p>
           </div>
         </div>
+
+         {modalPhotoData.similarPhotos && modalPhotoData.similarPhotos.length > 0 && (
+          <>
         <h1 className="photo-details-modal__header">Similar Photos</h1>
         
         <div className="photo-details-modal__images">
@@ -46,6 +51,8 @@ console.log(modalPhotoData);
             updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
           />
         </div>
+         </>
+        )}
       </div>
     </div >
   );
