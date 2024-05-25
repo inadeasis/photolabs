@@ -1,23 +1,33 @@
-import React from "react";
-
-import "../styles/PhotoList.scss";
+import React, { useEffect, useState } from "react";
 import PhotoListItem from "./PhotoListItem";
+import "../styles/PhotoList.scss";
 
-const PhotoList = (props) => {
-  const { photos, setDisplayModal, updateFavouritedPhotoIDs, updateModalData } = props;
-  
-return (
-  <ul className="photo-list">
-    {photos.map((item) => <li key={item.id}>
-      <PhotoListItem 
-        item={item} 
-        setDisplayModal={setDisplayModal}
-        updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} 
-        updateModalData={updateModalData}
-      />
-    </li>)}
-  </ul>
-);
+const PhotoList = ({
+  favoritedPhotos,
+  toggleFavorite,
+  openModal,
+  photos = [],
+}) => {
+  return (
+    <ul className="photo-list">
+      {photos.map((photo) => {
+        return (
+          <PhotoListItem
+            key={photo.id}
+            photoId={photo.id}
+            imageSource={photo.urls.regular}
+            profile={photo.user.profile}
+            username={photo.user.name}
+            location={photo.location}
+            favoritedPhotos={favoritedPhotos}
+            toggleFavorite={toggleFavorite}
+            openModal={openModal}
+            similarPhotos={photo.similar_photos}
+          />
+        );
+      })}
+    </ul>
+  );
 };
 
 export default PhotoList;

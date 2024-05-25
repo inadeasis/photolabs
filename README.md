@@ -1,4 +1,5 @@
 # react-photolabs
+
 The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
@@ -22,3 +23,8 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Final Product
+
+!["Screenshot of Photolabs Page for Desktops"](photo_source/Screenshot 2024-05-25 at 12.24.26 AM.png)
+!["Screenshot of Modals"](photo_source/Screenshot 2024-05-25 at 12.35.56 AM.png)

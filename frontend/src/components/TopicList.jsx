@@ -1,19 +1,25 @@
 import React from "react";
-import TopicListItem from './TopicListItem';
+import TopicListItem from "./TopicListItem";
+import useApplicationData from "hooks/useApplicationData";
 import "../styles/TopicList.scss";
 
-const TopicList = (props) => {
-  const { topics } = props
+const TopicList = ({ onLoadTopic }) => {
+  const { state } = useApplicationData();
 
-  const topicListItemArray = topics.map((topic) =>
-    <div key={topic.id}><TopicListItem topic={topic} /></div>
+  return (
+    <div className="top-nav-bar__topic-list">
+      {state.topicData &&
+        state.topicData.map(({ id, slug, title }) => (
+          <TopicListItem
+            key={id}
+            label={title}
+            link={`/${slug}`}
+            id={id}
+            onLoadTopic={onLoadTopic}
+          />
+        ))}
+    </div>
   );
-
-return (
-  <div className="top-nav-bar__topic-list">
-    {topics.map((topic) => <div key={topic.id}><TopicListItem topic={topic} /></div>)}
-  </div>
-);
 };
 
 export default TopicList;

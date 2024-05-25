@@ -1,35 +1,47 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React from "react";
+import HomeRoute from "routes/HomeRoute";
+import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import useApplicationData from "hooks/useApplicationData";
 
-import './App.scss';
-import HomeRoute from 'routes/HomeRoute';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import useApplicationData from 'hooks/useApplicationData';
+import "./App.scss";
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
-  const {photoIDs, modalPhotoData, updateFavouritedPhotoIDs, updateModalData, fetchData } = useApplicationData();
+  const {
+    state,
+    toggleFavorite,
+    openModal,
+    closeModal,
+    numFavoritedPhotos,
+    setSelectedTopic,
+    onLoadTopic,
+  } = useApplicationData();
 
-  useEffect(() => {
-   console.log(photoIDs);
-  }, [modalPhotoData]);
+  const { displayModal, favoritedPhotos, selectedPhoto, similarPhotos } = state;
 
-   return (
+  return (
     <div className="App">
-      <HomeRoute 
-        topics={fetchData.topicData}
-        photos={fetchData.photoData}
-        updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-        //setDisplayModal={setModalPhotoData} 
-        updateModalData={updateModalData} />
-      
-      {modalPhotoData && <PhotoDetailsModal 
-        modalPhotoData={modalPhotoData}
-        updateModalData={updateModalData}
-        updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-        />}
-      
+      <HomeRoute
+        photos={state.photoData}
+        topics={state.topicData}
+        favoritedPhotos={favoritedPhotos}
+        toggleFavorite={toggleFavorite}
+        openModal={openModal}
+        numFavoritedPhotos={numFavoritedPhotos}
+        setSelectedTopic={setSelectedTopic}
+        onLoadTopic={onLoadTopic}
+      />
+
+      {displayModal && (
+        <PhotoDetailsModal
+          onClose={() => closeModal()}
+          photo={selectedPhoto}
+          favoritedPhotos={favoritedPhotos}
+          toggleFavorite={toggleFavorite}
+          similarPhotos={similarPhotos}
+        />
+      )}
     </div>
   );
 };
+
 export default App;

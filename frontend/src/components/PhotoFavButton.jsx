@@ -1,29 +1,28 @@
-import React, { useState, useEffect} from 'react';
-
+import React, { useCallback } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-  
-const PhotoFavButton = (props) => {
-  const { item, updateFavouritedPhotoIDs } = props;
-
-  const [selected, setSelected] = useState(false);
-
-  const clickOnIcon = () => {
-    if (selected) {
-      setSelected(false);
-      updateFavouritedPhotoIDs(item.id, selected);
-    } else {
-      setSelected(true);
-      updateFavouritedPhotoIDs(item.id, selected);
-    }
-  };
-
-  return (
-    <div className="photo-list__fav-icon">
-      <div className="photo-list__fav-icon-svg">
-        <FavIcon clickOnIcon={clickOnIcon} selected={selected} />
-      </div>
-    </div>
-  );
+function PhotoFavButton({  toggleFavorite, favoritedPhotos, photoId }) {
+    
+    const toggleFav = () => {
+        toggleFavorite(photoId);
 }
+
+    const colorCheck = favoritedPhotos?.includes(photoId);
+
+
+    return (
+        <div className="photo-list__fav-icon" onClick={toggleFav}>
+            <div className="photo-list__fav-icon-svg">
+                <FavIcon
+                    width={20}
+                    height={17}
+                    outlineWidth={1}
+                    selected={colorCheck}   
+                    displayAlert={false}
+                />
+            </div>
+        </div>
+    );
+}
+
 export default PhotoFavButton;

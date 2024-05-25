@@ -1,24 +1,44 @@
-import React from 'react';
+import React from "react";
+import TopNavigationBar from "../components/TopNavigationBar";
+import PhotoList from "../components/PhotoList";
 
-import '../styles/HomeRoute.scss';
-import TopNavigation from 'components/TopNavigationBar';
-import PhotoList from 'components/PhotoList';
+import "../styles/HomeRoute.scss";
 
-const HomeRoute = (props) => {
-  const { topics, photos, updateFavouritedPhotoIDs, isFavourited, setDisplayModal, updateModalData } = props;
- 
+
+const HomeRoute = ({
+  photos,
+  topics,
+  setDisplayModal,
+  favoritedPhotos,
+  toggleFavorite,
+  displayAlert,
+  openModal,
+  numFavoritedPhotos,
+  setSelectedTopic,
+  onLoadTopic,
+
+}) => {
+
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} isFavourited={ isFavourited } />
-      <div className="photo-list">
-        <PhotoList 
-        photos={photos} 
-        updateFavouritedPhotoIDs={updateFavouritedPhotoIDs} 
-        isFavourited={ isFavourited } 
-        updateModalData={updateModalData}
+      <TopNavigationBar
+        topics={topics}
+        displayAlert={displayAlert}
+        numFavoritedPhotos={numFavoritedPhotos}
+        setSelectedTopic={setSelectedTopic}
+        onLoadTopic={onLoadTopic}
+      />
+
+      <PhotoList
+        photos={photos.map((photo) => ({
+          ...photo,
+          similarPhotos: photo.similar_photos,
+        }))}
+        favoritedPhotos={favoritedPhotos}
+        toggleFavorite={toggleFavorite}
         setDisplayModal={setDisplayModal}
-        />
-      </div>
+        openModal={openModal} 
+      />
     </div>
   );
 };

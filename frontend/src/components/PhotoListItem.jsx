@@ -1,30 +1,64 @@
-import React, {useState} from "react";
-
+import React, { useState } from "react";
+import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
-import PhotoFavButton from "./PhotoFavButton"
 
-const PhotoListItem = (props) => {
-  const { photo, item, updateFavouritedPhotoIDs, updateModalData, setDisplayModal } = props;
-
-    const handlePhotoClick = () => {
-    setDisplayModal(photo);
+const PhotoListItem = ({
+  photoId,
+  imageSource,
+  profile,
+  username,
+  location,
+  favoritedPhotos,
+  toggleFavorite,
+  openModal,
+  similarPhotos,
+}) => {
+  
+  const handleImageClick = () => {
+    openModal({
+      photoId,
+      imageSource,
+      profile,
+      username,
+      location,
+      similarPhotos,
+    });
   };
 
   return (
-  <div className="photo-list__item">
-    <PhotoFavButton 
-    updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-    item={item} />
+    <div className="photo-list__item">
+      <PhotoFavButton
+        toggleFavorite={toggleFavorite}
+        favoritedPhotos={favoritedPhotos}
+        photoId={photoId}
+      />
 
-    <img className="photo-list__image" onClick={handlePhotoClick} src={item.urls.regular} alt="photo" />
-    <div className="photo-list__user-details">
-      <img className="photo-list__user-profile" src={item.user.profile} alt="profile pic" />
-      <div>
-        <p className="photo-list__user-info">{item.user.username}</p>
-        <p className="photo-list__user-location">{item.location.city} {item.location.country}</p>
-      </div>  
-  </div>
-</div>
+      <img
+        className="photo-list__image"
+        src={imageSource}
+        alt={`Photo by ${username}`}
+        onClick={handleImageClick}
+      />
+
+      <div className="photo-list__user-details">
+        <img
+          className="photo-list__user-profile"
+          src={profile}
+          alt={`Profile of ${username}`}
+        />
+
+        <div className="photo-list__user-info">
+          <h2 className="photo-list__username">{username}</h2>
+
+          <div className="photo-list__user-location">
+            <p>
+              {location.city}, {location.country}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
+
 export default PhotoListItem;
