@@ -26,5 +26,5 @@ npm start
 
 ## Final Product
 
-!["Screenshot of Photolabs Page for Desktops"](photo_source/Screenshot 2024-05-25 at 12.24.26 AM.png)
-!["Screenshot of Modals"](photo_source/Screenshot 2024-05-25 at 12.35.56 AM.png)
+!["Screenshot of Photolabs Page for Desktops"](photo_source/ss1.png)
+!["Screenshot of Modals"](photo_source/ss2.png)
