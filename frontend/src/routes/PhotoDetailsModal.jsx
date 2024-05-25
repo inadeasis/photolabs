@@ -47,7 +47,7 @@ console.log(modalPhotoData);
         
         <div className="photo-details-modal__images">
           <PhotoList
-            photos={Object.values(modalPhotoData.similarPhotos)}
+            photos={Object.values(modalPhotoData.similar_photos)}
             updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
           />
         </div>

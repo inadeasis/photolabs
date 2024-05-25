@@ -3,14 +3,12 @@ import { useEffect } from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const {photoIDs, displayModal, modalPhotoData, updateFavouritedPhotoIDs, setModalData, updateModalData } = useApplicationData();
+  const {photoIDs, modalPhotoData, updateFavouritedPhotoIDs, updateModalData, fetchData } = useApplicationData();
 
   useEffect(() => {
    console.log(photoIDs);
@@ -19,10 +17,11 @@ const App = () => {
    return (
     <div className="App">
       <HomeRoute 
-      topics={topics} 
-      photos={photos}
-      updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
-      updateModalData={updateModalData} />
+        topics={fetchData.topicData}
+        photos={fetchData.photoData}
+        updateFavouritedPhotoIDs={updateFavouritedPhotoIDs}
+        //setDisplayModal={setModalPhotoData} 
+        updateModalData={updateModalData} />
       
       {modalPhotoData && <PhotoDetailsModal 
         modalPhotoData={modalPhotoData}
