@@ -26,5 +26,5 @@ npm start
 
 ## Final Product
 
-!["Screenshot of Photolabs Page for Desktops"](photo_source/ss1.png)
-!["Screenshot of Modals"](photo_source/ss2.png)
+!["Screenshot of Photolabs Page for Desktops"](frontend/photo_source/ss1.png)
+!["Screenshot of Modals"](frontend/photo_source/ss2.png)
