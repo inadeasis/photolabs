@@ -25,8 +25,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <TopNavigation topics={state.topicData} isFavourited={isFavourited} />
-
+      <TopNavigation 
+        topics={state.topicData} 
+        isFavourited={isFavourited}
+        onLoadTopic={onLoadTopic} />
 
       <HomeRoute
         photos={state.photoData}
