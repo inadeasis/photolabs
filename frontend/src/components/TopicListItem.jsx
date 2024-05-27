@@ -4,7 +4,7 @@ import "../styles/TopicListItem.scss";
 const TopicListItem = ({ id, label, link, onLoadTopic }) => (
   <div
     className="topic-list__item"
-    onClick={() => onLoadTopic(id)}
+    onClick={() => onLoadTopic}
   >
     <span href={link}>{label}</span>
   </div>

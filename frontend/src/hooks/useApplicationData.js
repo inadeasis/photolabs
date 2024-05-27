@@ -104,6 +104,10 @@ const useApplicationData = () => {
     }
   }, [state.selectedTopic]);
 
+    const onLoadTopic = (id) => {
+    setSelectedTopic(id);
+  };
+
   const setSelectedTopic = (id) => {
     dispatch({ type: ACTIONS.SET_SELECTED_TOPIC, payload: id });
   };
@@ -133,6 +137,7 @@ const useApplicationData = () => {
     closeModal,
     numFavoritedPhotos,
     setSelectedTopic,
+    onLoadTopic
   };
 };
 

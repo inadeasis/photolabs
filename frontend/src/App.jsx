@@ -2,6 +2,8 @@ import React from "react";
 import HomeRoute from "routes/HomeRoute";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 import useApplicationData from "hooks/useApplicationData";
+import TopNavigation from "components/TopNavigationBar";
+
 
 import "./App.scss";
 
@@ -18,8 +20,14 @@ const App = () => {
 
   const { displayModal, favoritedPhotos, selectedPhoto, similarPhotos } = state;
 
+  const isFavourited = favoritedPhotos.length > 0;
+
+
   return (
     <div className="App">
+      <TopNavigation topics={state.topicData} isFavourited={isFavourited} />
+
+
       <HomeRoute
         photos={state.photoData}
         topics={state.topicData}

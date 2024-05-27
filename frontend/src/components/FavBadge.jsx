@@ -4,10 +4,11 @@ import FavIcon from './FavIcon';
 import '../styles/FavBadge.scss';
 
 const FavBadge = ({ isFavourited }) => {
-  console.log(isFavourited);
   return (
     <div className='fav-badge'>
-      <FavIcon selected={true} displayAlert={!!isFavourited}/>
+      {/* <FavIcon selected={true} displayAlert={!!isFavourited} /> */}
+      <i className="fas fa-heart"></i>
+      {isFavourited && <span className="fav-badge__notification" >.</span>}
     </div>
   ) 
 };
