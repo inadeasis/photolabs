@@ -22,7 +22,7 @@ const PhotoDetailsModal = ({
 
       <div className="photo-details-modal__images">
         <PhotoFavButton
-          photoId={photo.photoId}
+          photoId={photo.id}
           toggleFavorite={toggleFavorite}
           favoritedPhotos={favoritedPhotos}
           setDisplayModal={setDisplayModal}
