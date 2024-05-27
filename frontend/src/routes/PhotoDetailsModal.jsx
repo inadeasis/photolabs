@@ -14,10 +14,6 @@ const PhotoDetailsModal = ({
   openModal
 }) => {
 
-  const handleImageClick = () => {
-    openModal(photo);
-  };
-
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={onClose}>
@@ -65,7 +61,7 @@ const PhotoDetailsModal = ({
             favoritedPhotos={favoritedPhotos}
             toggleFavorite={toggleFavorite}
             setDisplayModal={setDisplayModal}
-            onClick={handleImageClick}
+            openModal={openModal}
           />
         </div>
       </div>
