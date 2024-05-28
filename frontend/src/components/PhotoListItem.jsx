@@ -15,6 +15,9 @@ const PhotoListItem = ({
 }) => {
   
   const handleImageClick = () => {
+    if (!openModal){
+      return
+    }
     openModal({
       photoId,
       imageSource,

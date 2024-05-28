@@ -10,8 +10,7 @@ const PhotoDetailsModal = ({
   setDisplayModal,
   toggleFavorite,
   favoritedPhotos,
-  similarPhotos,
-  openModal
+  similarPhotos
 }) => {
 
   return (
@@ -61,7 +60,7 @@ const PhotoDetailsModal = ({
             favoritedPhotos={favoritedPhotos}
             toggleFavorite={toggleFavorite}
             setDisplayModal={setDisplayModal}
-            openModal={openModal}
+            
           />
         </div>
       </div>
